@@ -1,0 +1,26 @@
+.componentContainer{
+    width:50%;
+    margin:20px auto;
+    font-family: Arial, sans-serif;
+}
+
+.accordianContainer{
+    border : 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.accordianHeader{
+    background-color: #f1f1f1;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.accordianBody{
+    padding: 10px;
+    font-size: 12px;
+    color: #333;
+    background-color: #938f57;
+}

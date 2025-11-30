@@ -1,0 +1,39 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;   /* 🔥 THIS REMOVES SCROLL */
+}
+.header{
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+.container{
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    position: relative;
+}
+.card{
+    position: absolute;
+    /* align-items: center;
+    margin: 50px 100px; */
+    top: 50%;
+    left: 50%;;
+    border: 1px solid red;
+    transform: translate(-50%, -50%);
+    /* padding: 100px; */
+    /* border-radius: 10px; */
+    /* justify-content: space-between; */
+}
+
+/* .btn{
+    justify-content: space-between;
+    margin: 5px;
+    padding: 5px;
+}
+
+.lbl{
+    color: aqua;
+    text-align: center;
+} */

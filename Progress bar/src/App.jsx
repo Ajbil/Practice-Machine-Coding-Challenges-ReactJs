@@ -8,7 +8,7 @@ function App(){
       setProgress((prev) => {
         if(prev >= 100){
           clearInterval(interval);
-          return 100;
+          return 100; // progress is locked at 100
         }
         return prev+1;
       })
@@ -27,7 +27,7 @@ function App(){
  manage the progress and control intervals.</h1>
       <div>
         Progress Bar
-        <ProgressBar  text = {progress} width ={progress}/>
+        <ProgressBar  text = {progress} width ={progress}/>  
       </div>
     </div>
   )

@@ -130,3 +130,72 @@ const Question = () => {
 
 export default Question;
 
+/*
+here i want to undersant the differnce betwen how i am callinng the onChnage like here it sis like <button onClick={handleNextClick}>Next</button> not <button onClick={(e) => handleNextClick()}>Next</button> and here it is onClick={() => handleOptionSelect(option)} not onClick={handleOptionSelect(option)} What is the differenc ebetween these logic of writig in react
+
+This difference is all about when a function is executed vs passing a function reference to onClick
+
+When we write 
+<button onClick={handleNextClick}>Next</button>
+we are passing function refernce  -- React will call handleNextClick only when the click happens.
+If i would have used <button onClick={handleNextClick()}>Next</button>  -- then Then handleNextClick() will run immediately during render, NOT on click.
+
+Why is this correct?
+
+Because React expects a function, not the result of a function.
+
+✔ onClick={handleNextClick} → You're giving React a function.
+
+❌ onClick={handleNextClick()} → You're giving React the returned value from handleNextClick().
+
+------------------------------------------
+
+Case 2:
+✔ onClick={() => handleOptionSelect(option)}
+❌ NOT: onClick={handleOptionSelect(option)}
+
+This is different.
+
+Why do we use an arrow function here?
+
+Because we need to pass an argument (option) to the handler
+
+onClick={() => handleOptionSelect(option)}  ---> This means Create a function. When clicked, execute handleOptionSelect(option) with the right option. 
+
+
+If we write this onClick={handleOptionSelect(option)}  --What happens?
+
+handleOptionSelect(option) runs immediately — during render!
+
+The result (probably undefined) gets assigned to onClick
+
+Your click handler becomes undefined — nothing happens when clicking.
+
+
+
+
+Why do we need the arrow function?
+
+If your function needs extra data, e.g., the selected option:
+
+handleOptionSelect(option)
+
+
+You need to wrap the call inside another function:
+
+onClick={() => handleOptionSelect(option)}
+
+
+Because onClick must be a function, not the result of a function.
+
+
+
+
+Final Takeaway
+
+Use function reference when no arguments → onClick={fn}
+
+Use arrow function when passing arguments → onClick={() => fn(arg)}
+
+Never write onClick={fn()} unless you want it to run immediately.
+*/

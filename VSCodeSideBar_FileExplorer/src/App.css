@@ -9,3 +9,8 @@
     max-width: 200px;
     cursor: pointer;
 }
+
+.icon{
+    width: 20px;
+    margin-left: 10px;
+}

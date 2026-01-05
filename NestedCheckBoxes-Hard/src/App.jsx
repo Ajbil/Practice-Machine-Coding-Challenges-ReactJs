@@ -73,6 +73,23 @@ const CheckBoxes = ({ data, checked, setChecked }) => {
       };
       updateChildren(node);
 
+      //here below is the most tough part -- when all children are checkd , check the parent also -- here i will use logic of bottom up approahc 
+      // i will trverse the tree till leaf node and ask if its checked or not and ppropogate it to top 
+      // here i will use recursion and also i will need to call this function logic for all nodes in my datalist for that forEach will be used 
+
+      const verifyChecked = (node) => {
+        //base case - when reached leaf node i.e no children return it as iit is 
+        if(!node.children) return newState[node.id] || false;
+
+        const allChildrenChecked = node.children.every((child) => 
+        verifyChecked(child));  // i.e recursively calling 
+
+        newState[node.id] = allChildrenChecked; // every() function will return true or false and that i will use here 
+        return allChildrenChecked;
+      };
+
+      checkBoxesData.forEach((node) => verifyChecked(node));
+
       return newState;
     })
   }
